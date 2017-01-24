@@ -1,9 +1,9 @@
-//importing the connection.js file
+// Importing the connection.js file
 var connectionFile = require('../config/connection.js');
 
-//create code that will call the query functions 
-//using burger specific input
+// Create code that will call the query functions 
+// Using burger specific input
 
 
-//exporting the file
+// Exporting the file
 module.exports = burger;
