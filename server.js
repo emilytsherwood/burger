@@ -1,4 +1,4 @@
-//requiring express, body-parser and method-override
+// Requiring express, body-parser and method-override
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
@@ -16,5 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 var exphbs = require("express-handlebars");
 
+// Telling the app what engine we are going to use
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// Using that engine
 app.set("view engine", "handlebars");
