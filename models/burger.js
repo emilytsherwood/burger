@@ -1,5 +1,3 @@
-// Importing the connection.js file
-var connectionFile = require('../config/connection.js');
 // Importing the orm.js file
 var orm = require("../config/orm.js");
 
@@ -22,7 +20,6 @@ var burger = {
     });
   }
 };
-
 
 // Exporting the file
 module.exports = burger;
