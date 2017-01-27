@@ -1,14 +1,12 @@
-//requiring express
-var app = require ('express');
+var express = require('express');
 //importing the burger.js file to use its database functions
 var burgerFile = require ('../models/burger.js');
 // creating the router for the app
 var router = express.Router();
 
 
-
 // create all our routes and set up logic within those routes where required.
-router.get('/burgers', function(req, res) {
+router.get('/', function(req, res) {
   burgerFile.all(function(data) {
     var hbsObject = {
       burgers: data
@@ -18,13 +16,13 @@ router.get('/burgers', function(req, res) {
   });
 });
 
-router.post('/burgers/create', function(req, res) {
+router.post('/create', function(req, res) {
   burgerFile.create([
     'burger_name'
   ], [
     req.body.burger_name
   ], function() {
-    res.redirect('/burgers');
+    res.redirect('/');
   });
 });
 
@@ -36,8 +34,8 @@ router.put('/:id', function(req, res) {
   burgerFile.update({
     'devoured': req.body.devoured
   }, condition, function() {
-    res.redirect("/burgers");
+    res.redirect("/");
   });
 });
 
-
+module.exports = router;

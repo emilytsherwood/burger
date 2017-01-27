@@ -1,40 +1,42 @@
-<div class="container">
-        <br>
-        <div class="page-style">
-            <div class="jumbotron">
-                <center><img src="../public/assets/img/burger.png" alt="burger" class="burger-style" /></center>
-                <h1 class="text-center">Eat-Da-Burger!</h1>
-            </div>
-        </div>
-
-  -create actual lists of burger names and devoured button and use this.burger_name and this.devoured...etc
-
-        <center>
-            <textarea name="message" rows="6" cols="50">
-            </textarea>
-            <center>
-                <h3>Enter the burger you want to eat above and CLICK 'Submit'.</h3>
-                <button type="button" class="btn btn-warning">Submit</button>
-  
 <ul>
   {{#each burgers}}
+  {{#if devoured}}
   <li>
-  <center><form action="/{{this.id}}?_method=PUT" method="POST">
-  		<h3>Enter the burger you want to eat above and CLICK 'Submit'.</h3>
-    	<input type="hidden" name="devour" value="false">
-        <button type="submit">Devour!</button>
-  </form></center>
+    {{burger_name}} - {{devoured}}
+      <form action="/{{id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="true">
+          <button type="submit">Devour!</button>
+      </form>
+
+      <form action="/{{id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="false">
+          <button type="submit">Undevour!</button>
+      </form>
   </li>
-</ul>
+  {{/if}}
+  {{/each}}
 
+</ul>	
+<hr> 
+<ul>
+  {{#each burgers}}
+  {{#unless devoured}}
+  <li>
+    {{burger_name}} - {{devoured}}
+      <form action="/{{id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="true">
+          <button type="submit">Devour!</button>
+      </form>
 
+      <form action="/{{id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="false">
+          <button type="submit">Undevour!</button>
+      </form>
+  </li>
+  {{/unless}}
+  {{/each}}
 
-
-
-
-</div>
-	
-
+</ul> 
 
 
 

@@ -1,11 +1,11 @@
-//file that will setup the connection from Node to MySQL
-//requiring mysql
+// File that will setup the connection from Node to MySQL
+// Requiring mysql
 var mysql = require ('mysql');
 
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "12345",
+  password: "",
   database: "burgers_db"
 });
 

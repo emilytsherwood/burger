@@ -3,8 +3,10 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 
+var emily = require('./controllers/burgers_controller.js');
+
 var app = express();
-var port = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(process.cwd() + "/public"));
@@ -20,3 +22,11 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 // Using that engine
 app.set("view engine", "handlebars");
+
+app.use('/', emily);
+
+app.listen(PORT, function(){
+	console.log("Listening on: " + PORT);
+});
+
+
