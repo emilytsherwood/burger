@@ -20,7 +20,7 @@ router.post('/create', function(req, res) {
   burgerFile.create([
     'burger_name'
   ], [
-    req.body.burger_name
+    req.body.burgername
   ], function() {
     res.redirect('/');
   });
