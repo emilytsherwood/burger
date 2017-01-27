@@ -3,7 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 
-var emily = require('./controllers/burgers_controller.js');
+var router = require('./controllers/burgers_controller.js');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -23,7 +23,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 // Using that engine
 app.set("view engine", "handlebars");
 
-app.use('/', emily);
+app.use('/', router);
 
 app.listen(PORT, function(){
 	console.log("Listening on: " + PORT);
