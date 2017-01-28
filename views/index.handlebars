@@ -8,18 +8,17 @@
    <!-- #unless will render the block if it returns falsy -->
   
       {{burger_name}} - {{devoured}}
+      <br>
       <form action="/{{id}}?_method=PUT" method="POST">
          <input type="hidden" name="devoured" value="true">
-         <br>
          <button type="submit">Devour!</button>
       </form>
+      <br>
       {{/unless}}
    {{/each}}
  </div>
-   <br>
+ <br>
    
-
-<hr>
   <div class="col-md-4">
 <h3>Devoured Burgers</h3>
 
@@ -29,16 +28,16 @@
    <!-- #if conditional -->
 
       {{burger_name}} - {{devoured}}
+      <br>
       <form action="/{{id}}?_method=PUT" method="POST">
          <input type="hidden" name="devoured" value="false">
-         <br>
          <button type="submit">Undevour!</button>
       </form>
+      <br>
       {{/if}}
    {{/each}}
  </div>
-   <br>
-   
+ <br>
 
 <!-- Input field to add a burger into the app -->
 <div class="col-md-4">
