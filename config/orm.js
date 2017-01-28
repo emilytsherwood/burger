@@ -13,8 +13,8 @@ function printQuestionMarks(num) {
   return arr.toString();
 }
 
-// Helper function for SQL syntax.
-// Will take the JS object and turn it into a string.
+// Helper function for SQL syntax
+// Will take the JS object and turn it into a string
 function objToSql(ob) {
   var arr = [];
 
@@ -38,6 +38,7 @@ var orm = {
       cb(result);
     });
   },
+  // Writing query to create and insert a burger into the table
  create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
@@ -57,7 +58,8 @@ var orm = {
       cb(result);
     });
  },
- // An example of objColVals would be {name: panther, sleepy: true}
+ // An example of objColVals would be {name: cheeseburger, devoured: true}
+ // Query to update the table when burger gets devoured
   update: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 

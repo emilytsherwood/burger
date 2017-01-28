@@ -23,8 +23,10 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 // Using that engine
 app.set("view engine", "handlebars");
 
+// Using the router required on line 6
 app.use('/', router);
 
+// Listening to the PORT set up on line 9
 app.listen(PORT, function(){
 	console.log("Listening on: " + PORT);
 });

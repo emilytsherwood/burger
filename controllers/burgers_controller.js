@@ -15,7 +15,9 @@ router.get('/', function(req, res) {
     res.render('index', hbsObject);
   });
 });
-
+// Post to create a burger...
+// When the submit button on the input field named "burgername" in index.handlebars is pressed
+// Will go to /create route
 router.post('/create', function(req, res) {
   burgerFile.create([
     'burger_name'
@@ -25,7 +27,8 @@ router.post('/create', function(req, res) {
     res.redirect('/');
   });
 });
-
+// Route when burger is devoured
+// Any burger can be inputted and a unique id will be assigned to it/its route
 router.put('/:id', function(req, res) {
   var condition = 'id = ' + req.params.id;
 
@@ -38,4 +41,5 @@ router.put('/:id', function(req, res) {
   });
 });
 
+// exporting the express.Router
 module.exports = router;
