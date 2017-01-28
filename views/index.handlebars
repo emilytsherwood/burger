@@ -1,42 +1,48 @@
-<ul class="list-group">
+<div class="container">
+<div class="row">
+  <div class="col-md-4">
    <h3>Eat Me!</h3>
    {{#each burgers}}
    <!-- #each will loop through the burgers table -->
    {{#unless devoured}}
    <!-- #unless will render the block if it returns falsy -->
-   <li class="list-group-item">
+  
       {{burger_name}} - {{devoured}}
       <form action="/{{id}}?_method=PUT" method="POST">
          <input type="hidden" name="devoured" value="true">
          <br>
          <button type="submit">Devour!</button>
       </form>
-   </li>
-   <br>
-   {{/unless}}
+      {{/unless}}
    {{/each}}
-</ul>
+ </div>
+   <br>
+   
+
 <hr>
+  <div class="col-md-4">
 <h3>Devoured Burgers</h3>
-<ul class="list-group">
+
    {{#each burgers}}
    <!-- Loop through burgers -->
    {{#if devoured}}
    <!-- #if conditional -->
-   <li class="list-group-item">
+
       {{burger_name}} - {{devoured}}
       <form action="/{{id}}?_method=PUT" method="POST">
          <input type="hidden" name="devoured" value="false">
          <br>
          <button type="submit">Undevour!</button>
       </form>
-   </li>
-   <br>
-   {{/if}}
+      {{/if}}
    {{/each}}
-</ul>
+ </div>
+   <br>
+   
+
 <!-- Input field to add a burger into the app -->
-<center>
+<div class="col-md-4">
+
 <h2>Add a Burger! Press Submit!</h2>
 <form class="create-update-form" action="/create" method="POST">
    <div class="form-group">
@@ -46,7 +52,10 @@
       <button type="submit">Submit</button>
    </div>
 </form>
-</center>
+
+</div>
+</div>
+</div>
 
 
 
